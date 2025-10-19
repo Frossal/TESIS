@@ -1,0 +1,104 @@
+Resumen:
+Se muestran 50 SKUs (Top recomendados OFF). 100.0% cumplen la meta de fill (0.95). Se visualizan costo, DIO, CCC y el trade-off servicio vs inventario para priorizar decisiones.
+
+Recomendaciones:
+- [8820 CORONA] DIO alto (7807.0 d): reducir Q o (S−s); revisar h y rotación.
+- [8820 CORONA] CCC 7777.0 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8820 CORAZON] DIO alto (7694.2 d): reducir Q o (S−s); revisar h y rotación.
+- [8820 CORAZON] CCC 7664.2 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [ALICATE 500-401 1/4 KM] DIO alto (10284.6 d): reducir Q o (S−s); revisar h y rotación.
+- [ALICATE 500-401 1/4 KM] CCC 10254.6 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8920 MARIPOSA] DIO alto (4040.4 d): reducir Q o (S−s); revisar h y rotación.
+- [8920 MARIPOSA] CCC 4010.4 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8820 MOSTACHO] DIO alto (7649.1 d): reducir Q o (S−s); revisar h y rotación.
+- [8820 MOSTACHO] CCC 7619.1 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [ALICATE 1/4] DIO alto (25160.5 d): reducir Q o (S−s); revisar h y rotación.
+- [ALICATE 1/4] CCC 25130.5 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8820 ESTRELLA G] DIO alto (7145.9 d): reducir Q o (S−s); revisar h y rotación.
+- [8820 ESTRELLA G] CCC 7115.9 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8721-5] DIO alto (11282.6 d): reducir Q o (S−s); revisar h y rotación.
+- [8721-5] CCC 11252.6 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 ARBOL CON ESTRELLA] DIO alto (21024.7 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 ARBOL CON ESTRELLA] CCC 20994.7 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [5815 CORAZON] DIO alto (6573.6 d): reducir Q o (S−s); revisar h y rotación.
+- [5815 CORAZON] CCC 6543.6 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [ESQUINERO 6630-2] DIO alto (13229.4 d): reducir Q o (S−s); revisar h y rotación.
+- [ESQUINERO 6630-2] CCC 13199.4 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8815 CORONA] DIO alto (11737.7 d): reducir Q o (S−s); revisar h y rotación.
+- [8815 CORONA] CCC 11707.7 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [5810 ARETE] DIO alto (8464.4 d): reducir Q o (S−s); revisar h y rotación.
+- [5810 ARETE] CCC 8434.4 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [120-320 BIGOTE] DIO alto (6724.5 d): reducir Q o (S−s); revisar h y rotación.
+- [120-320 BIGOTE] CCC 6694.5 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8830 ANGEL N] DIO alto (5489.0 d): reducir Q o (S−s); revisar h y rotación.
+- [8830 ANGEL N] CCC 5459.0 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 GLOBO] DIO alto (20419.3 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 GLOBO] CCC 20389.3 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8805 MARGARITA X8 PETALOS] DIO alto (30001.0 d): reducir Q o (S−s); revisar h y rotación.
+- [8805 MARGARITA X8 PETALOS] CCC 29971.0 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8820 CIRCULO 4CM] DIO alto (7636.5 d): reducir Q o (S−s); revisar h y rotación.
+- [8820 CIRCULO 4CM] CCC 7606.5 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [5805 CIRCULO] DIO alto (9963.9 d): reducir Q o (S−s); revisar h y rotación.
+- [5805 CIRCULO] CCC 9933.9 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [5815 CIRCULO] DIO alto (3658.9 d): reducir Q o (S−s); revisar h y rotación.
+- [5815 CIRCULO] CCC 3628.9 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 CORONA] DIO alto (11525.3 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 CORONA] CCC 11495.3 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 MARGARITA X6 PETALOS] DIO alto (11389.3 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 MARGARITA X6 PETALOS] CCC 11359.3 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8830 CIRCULO 6.3CM] DIO alto (3159.0 d): reducir Q o (S−s); revisar h y rotación.
+- [8830 CIRCULO 6.3CM] CCC 3129.0 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [688A-8605 MALETA ABC CORRIDA] DIO alto (932.0 d): reducir Q o (S−s); revisar h y rotación.
+- [688A-8605 MALETA ABC CORRIDA] CCC 902.0 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8830 COPO] DIO alto (3258.4 d): reducir Q o (S−s); revisar h y rotación.
+- [8830 COPO] CCC 3228.4 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 ANGEL] DIO alto (11760.9 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 ANGEL] CCC 11730.9 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 FLOR ESTRELLA X5] DIO alto (12005.1 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 FLOR ESTRELLA X5] CCC 11975.1 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [5815 COLLAR] DIO alto (2501.9 d): reducir Q o (S−s); revisar h y rotación.
+- [5815 COLLAR] CCC 2471.9 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [ALICATE 1/8] DIO alto (9839.5 d): reducir Q o (S−s); revisar h y rotación.
+- [ALICATE 1/8] CCC 9809.5 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 FLOR CORTADA] DIO alto (8598.1 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 FLOR CORTADA] CCC 8568.1 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8820 COPO] DIO alto (3161.8 d): reducir Q o (S−s); revisar h y rotación.
+- [8820 COPO] CCC 3131.8 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [PERFORADOR 6 AGUJEROS ESPIRAL DL2617] DIO alto (2270.6 d): reducir Q o (S−s); revisar h y rotación.
+- [PERFORADOR 6 AGUJEROS ESPIRAL DL2617] CCC 2240.6 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 BIGOTE] DIO alto (8142.8 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 BIGOTE] CCC 8112.8 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [5810 LLAVERO CARA FELIZ] DIO alto (4176.0 d): reducir Q o (S−s); revisar h y rotación.
+- [5810 LLAVERO CARA FELIZ] CCC 4146.0 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8815 CORAZON] DIO alto (8757.3 d): reducir Q o (S−s); revisar h y rotación.
+- [8815 CORAZON] CCC 8727.3 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [CD99M ESTRELLA] DIO alto (24304.2 d): reducir Q o (S−s); revisar h y rotación.
+- [CD99M ESTRELLA] CCC 24274.2 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8815 ESTRELLA D] DIO alto (8126.5 d): reducir Q o (S−s); revisar h y rotación.
+- [8815 ESTRELLA D] CCC 8096.5 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8815 ESTRELLA G] DIO alto (8102.8 d): reducir Q o (S−s); revisar h y rotación.
+- [8815 ESTRELLA G] CCC 8072.8 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8820 TOPPER] DIO alto (5504.4 d): reducir Q o (S−s); revisar h y rotación.
+- [8820 TOPPER] CCC 5474.4 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 MARGARITA X8 PETALOS] DIO alto (15851.8 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 MARGARITA X8 PETALOS] CCC 15821.8 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 FLOR BONITA] DIO alto (17409.2 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 FLOR BONITA] CCC 17379.2 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [ALICATE 1605] DIO alto (18735.5 d): reducir Q o (S−s); revisar h y rotación.
+- [ALICATE 1605] CCC 18705.5 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 LAZO] DIO alto (15166.4 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 LAZO] CCC 15136.4 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8915 MARIPOSA] DIO alto (5096.4 d): reducir Q o (S−s); revisar h y rotación.
+- [8915 MARIPOSA] CCC 5066.4 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 BIRRETE] DIO alto (13281.8 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 BIRRETE] CCC 13251.8 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [5815 ROMPECABEZA] DIO alto (2498.1 d): reducir Q o (S−s); revisar h y rotación.
+- [5815 ROMPECABEZA] CCC 2468.1 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8830 CIRCULO 7.5CM] DIO alto (3116.3 d): reducir Q o (S−s); revisar h y rotación.
+- [8830 CIRCULO 7.5CM] CCC 3086.3 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [PISTOLA PUNCH GR] DIO alto (6311.0 d): reducir Q o (S−s); revisar h y rotación.
+- [PISTOLA PUNCH GR] CCC 6281.0 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8810 ESTRELLA G] DIO alto (8842.7 d): reducir Q o (S−s); revisar h y rotación.
+- [8810 ESTRELLA G] CCC 8812.7 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.
+- [8820 ARETES] DIO alto (2755.0 d): reducir Q o (S−s); revisar h y rotación.
+- [8820 ARETES] CCC 2725.0 d: bajar DIO (mejor rotación) y/o negociar DPO/DSO.

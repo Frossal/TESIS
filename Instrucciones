@@ -1,0 +1,12 @@
+1-Crea el entorno
+    cd ruta del proyecto
+####crear entorno
+    python -m venv .venv
+####activarlo
+    .\.venv\Scripts\Activate.ps1
+####actualizar pip y instalar dependencias
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+correr
+2- python -m streamlit run app.py
+
