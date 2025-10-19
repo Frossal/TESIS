@@ -149,12 +149,17 @@ def _safe_norm(x: pd.Series) -> pd.Series:
 
 def _compute_score_from_aggregates(df_agg: pd.DataFrame) -> pd.DataFrame:
     out = df_agg.copy()
-    
-    # 💡 ESTO YA DEBE ESTAR HECHO: Se rellena con 0.0 ANTES de normalizar para que el score sea numérico.
-    cost_norm = _safe_norm(out["cost_mean_OFF"].fillna(0.0))
-    dio_norm  = _safe_norm(out["dio_OFF"].fillna(0.0))
-    fill_norm = _safe_norm(out["fill_rate_OFF"].fillna(0.0))
-    
+
+    for col in ("cost_mean_OFF", "fill_rate_OFF", "dio_OFF"):
+        if col not in out.columns:
+            out[col] = np.nan
+        else:
+            out[col] = pd.to_numeric(out[col], errors="coerce")
+
+    cost_norm = _safe_norm(out["cost_mean_OFF"])
+    dio_norm  = _safe_norm(out["dio_OFF"])
+    fill_norm = _safe_norm(out["fill_rate_OFF"])
+
     out["score"] = (
         st.session_state["w_cost"] * cost_norm
       + st.session_state["w_fill_pen"] * (1.0 - fill_norm)  # penaliza fill bajo
@@ -192,6 +197,15 @@ def _aggregate_months_view(base_df: pd.DataFrame, months_selected: list[int]) ->
 
     d = base_df.copy()
 
+    type_lookup = None
+    if "sku" in base_df.columns and "type_OFF" in base_df.columns:
+        type_lookup = (
+            base_df.dropna(subset=["sku"])
+                    .groupby("sku", as_index=False)["type_OFF"]
+                    .apply(lambda s: s.dropna().iloc[-1] if not s.dropna().empty else np.nan)
+        )
+        type_lookup.rename(columns={"type_OFF": "type_OFF_base"}, inplace=True)
+
     # mes numérico para filtrar
     if "month" not in d.columns:
         d["month"] = d["date"].dt.month
@@ -200,18 +214,24 @@ def _aggregate_months_view(base_df: pd.DataFrame, months_selected: list[int]) ->
     if months_selected:
         d = d[d["month"].isin(months_selected)]
 
-    # si no hay filas, devolvemos todos los SKUs con NaN
+    metrics = ["cost_mean_OFF", "fill_rate_OFF", "dio_OFF"]
+
     if d.empty:
-        skus = base_df["sku"].drop_duplicates().sort_values() if "sku" in base_df.columns else pd.Series(dtype=str)
-        out = pd.DataFrame({
-            "sku": skus,
-            "cost_mean_OFF": np.nan,
-            "fill_rate_OFF": np.nan,
-            "dio_OFF": np.nan,
-            "type_OFF": ""
-        })
+        if "sku" not in base_df.columns:
+            return pd.DataFrame(columns=["sku","score",*metrics,"type_OFF"])
+        skus = (
+            base_df["sku"].dropna().drop_duplicates().sort_values().reset_index(drop=True)
+        )
+        out = pd.DataFrame({"sku": skus})
+        for col in metrics:
+            out[col] = np.nan
+        out["type_OFF"] = np.nan
+        if type_lookup is not None:
+            out = out.merge(type_lookup, on="sku", how="left")
+            out["type_OFF"] = out["type_OFF"].combine_first(out.pop("type_OFF_base"))
+        out["type_OFF"] = out["type_OFF"].fillna("")
         out = _compute_score_from_aggregates(out)
-        return out[["sku","score","cost_mean_OFF","fill_rate_OFF","dio_OFF","type_OFF"]]
+        return out[["sku","score",*metrics,"type_OFF"]]
 
     def _nanmean(x):
         return np.nanmean(x.values.astype(float)) if len(x) else np.nan
@@ -224,20 +244,20 @@ def _aggregate_months_view(base_df: pd.DataFrame, months_selected: list[int]) ->
     })
 
     # asegurar que todos los SKUs existan en el agregado (aunque con NaN)
-    all_skus = base_df["sku"].drop_duplicates()
+    all_skus = base_df["sku"].dropna().drop_duplicates()
     agg = all_skus.to_frame().merge(agg, on="sku", how="left")
 
-    # 💡 CORRECCIÓN CLAVE: Rellenar NaN en las métricas numéricas para que se muestren '0'
-    # en lugar de 'None' cuando el SKU no tiene datos en los meses seleccionados.
-    agg["cost_mean_OFF"] = agg["cost_mean_OFF"].fillna(0.0)
-    agg["fill_rate_OFF"] = agg["fill_rate_OFF"].fillna(0.0)
-    agg["dio_OFF"] = agg["dio_OFF"].fillna(0.0)
-    
-    # Rellenar type_OFF con un string vacío si es necesario.
+    for col in metrics:
+        agg[col] = pd.to_numeric(agg[col], errors="coerce")
+
+    agg["type_OFF"] = agg["type_OFF"].replace({np.nan: None})
+    if type_lookup is not None:
+        agg = agg.merge(type_lookup, on="sku", how="left")
+        agg["type_OFF"] = agg["type_OFF"].combine_first(agg.pop("type_OFF_base"))
     agg["type_OFF"] = agg["type_OFF"].fillna("")
 
     agg = _compute_score_from_aggregates(agg)
-    return agg[["sku","score","cost_mean_OFF","fill_rate_OFF","dio_OFF","type_OFF"]]
+    return agg[["sku","score",*metrics,"type_OFF"]]
 
 # ===================== Helpers: agregación y score =====================
 
@@ -365,7 +385,7 @@ with c_ms:
 with c_btn:
     st.button("Seleccionar todo", on_click=_select_all_months, use_container_width=True)
 
-st.session_state.months_selected = [int(m) for m in st.session_state.months_multiselect]
+st.session_state.months_selected = sorted({int(m) for m in st.session_state.months_multiselect})
 if not st.session_state.months_selected:
     st.warning("Selecciona al menos un mes (desde el corte en adelante).")
     st.stop()
@@ -374,8 +394,12 @@ months_selected: list[int] = st.session_state.months_selected[:]
 # =================== Base normalizada + vista agregada ==============
 base_df = _normalize_kpi_columns(res["rep_df"].copy())   # 👈 normaliza nombres y fecha
 view_df = _aggregate_months_view(base_df, months_selected)
-view_df = view_df.sort_values(["score", "sku"], ascending=[True, True], kind="mergesort").reset_index(drop=True)
-view_df["ranking_general"] = np.arange(1, len(view_df) + 1)
+view_df = view_df.sort_values(["score", "sku"], ascending=[True, True], na_position="last", kind="mergesort").reset_index(drop=True)
+view_df["ranking_general"] = pd.Series([pd.NA] * len(view_df), dtype="Int64")
+valid_scores = view_df["score"].notna()
+if valid_scores.any():
+    ranks = view_df.loc[valid_scores, "score"].rank(method="dense", ascending=True).astype(int)
+    view_df.loc[valid_scores, "ranking_general"] = ranks.astype("Int64")
 
 # ======================= Tablas =======================
 TOP_N = int(top_table_n)
