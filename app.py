@@ -211,6 +211,9 @@ def _aggregate_months_view(base_df: pd.DataFrame, months_selected: list[int]) ->
             "type_OFF": ""
         })
         out = _compute_score_from_aggregates(out)
+        for col in ("cost_mean_OFF", "fill_rate_OFF", "dio_OFF"):
+            if col in out.columns:
+                out[col] = out[col].fillna(0.0).astype(float)
         return out[["sku","score","cost_mean_OFF","fill_rate_OFF","dio_OFF","type_OFF"]]
 
     def _nanmean(x):
@@ -229,14 +232,17 @@ def _aggregate_months_view(base_df: pd.DataFrame, months_selected: list[int]) ->
 
     # 💡 CORRECCIÓN CLAVE: Rellenar NaN en las métricas numéricas para que se muestren '0'
     # en lugar de 'None' cuando el SKU no tiene datos en los meses seleccionados.
-    agg["cost_mean_OFF"] = agg["cost_mean_OFF"].fillna(0.0)
-    agg["fill_rate_OFF"] = agg["fill_rate_OFF"].fillna(0.0)
-    agg["dio_OFF"] = agg["dio_OFF"].fillna(0.0)
+    agg["cost_mean_OFF"] = agg["cost_mean_OFF"].fillna(0.0).astype(float)
+    agg["fill_rate_OFF"] = agg["fill_rate_OFF"].fillna(0.0).astype(float)
+    agg["dio_OFF"] = agg["dio_OFF"].fillna(0.0).astype(float)
     
     # Rellenar type_OFF con un string vacío si es necesario.
     agg["type_OFF"] = agg["type_OFF"].fillna("")
 
     agg = _compute_score_from_aggregates(agg)
+    for col in ("cost_mean_OFF", "fill_rate_OFF", "dio_OFF"):
+        if col in agg.columns:
+            agg[col] = agg[col].fillna(0.0).astype(float)
     return agg[["sku","score","cost_mean_OFF","fill_rate_OFF","dio_OFF","type_OFF"]]
 
 # ===================== Helpers: agregación y score =====================
@@ -365,7 +371,7 @@ with c_ms:
 with c_btn:
     st.button("Seleccionar todo", on_click=_select_all_months, use_container_width=True)
 
-st.session_state.months_selected = [int(m) for m in st.session_state.months_multiselect]
+st.session_state.months_selected = sorted({int(m) for m in st.session_state.months_multiselect})
 if not st.session_state.months_selected:
     st.warning("Selecciona al menos un mes (desde el corte en adelante).")
     st.stop()
